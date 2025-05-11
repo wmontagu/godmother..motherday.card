@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Mother's Day Godmother!</title>
+    <style>
+        body {
+            background-color: #f5e9d9;
+            font-family: 'Georgia', serif;
+            text-align: center;
+            padding: 50px;
+            background-image: url('/api/placeholder/800/600');
+            background-size: cover;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 35px;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, #8a5a44, #c19a6b, #8a5a44);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        h1 {
+            color: #8a5a44;
+            font-family: 'Palatino Linotype', serif;
+            font-size: 2.7em;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-container {
+            margin: 25px 0;
+            overflow: hidden;
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            border: 5px solid #c19a6b;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .godmother-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .godmother-image:hover {
+            transform: scale(1.1);
+        }
+        
+        .message {
+            color: #5d4037;
+            font-size: 1.5em;
+            line-height: 1.7;
+            margin: 30px 0;
+            font-style: italic;
+        }
+        
+        .stars {
+            color: #c19a6b;
+            font-size: 1.7em;
+            letter-spacing: 8px;
+            display: inline-block;
+            margin: 15px 0;
+        }
+        
+        #special-message {
+            display: none;
+            animation: slideUp 1s;
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .quote-container {
+            margin: 30px auto;
+            max-width: 450px;
+            position: relative;
+            padding: 20px;
+            background-color: #f8f3ec;
+            border-radius: 10px;
+            border-left: 5px solid #8a5a44;
+        }
+        
+        .quote-mark {
+            font-size: 4em;
+            color: #c19a6b;
+            opacity: 0.5;
+            position: absolute;
+            top: -15px;
+            left: 10px;
+        }
+        
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2.8em;
+            color: #8a5a44;
+            margin-top: 20px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #8a5a44, #c19a6b);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 14px 28px;
+            font-size: 1.3em;
+            margin: 25px 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(138, 90, 68, 0.3);
+            font-family: 'Georgia', serif;
+        }
+
+        .button:hover {
+            box-shadow: 0 6px 12px rgba(138, 90, 68, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .butterfly {
+            position: absolute;
+            font-size: 1.5em;
+            animation: flutter 8s infinite ease-in-out;
+        }
+        
+        .butterfly:nth-child(1) {
+            top: 20px;
+            right: 40px;
+            animation-delay: 0s;
+        }
+        
+        .butterfly:nth-child(2) {
+            bottom: 30px;
+            left: 30px;
+            animation-delay: 2s;
+        }
+        
+        @keyframes flutter {
+            0% { transform: translate(0, 0) rotate(5deg); }
+            25% { transform: translate(10px, -15px) rotate(-5deg); }
+            50% { transform: translate(5px, 10px) rotate(5deg); }
+            75% { transform: translate(-5px, -5px) rotate(-5deg); }
+            100% { transform: translate(0, 0) rotate(5deg); }
+        }
+        
+        .memories {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .memory {
+            margin: 0 10px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .memory:hover {
+            transform: scale(1.1);
+        }
+        
+        .memory-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #8a5a44;
+        }
+        
+        .memory-text {
+            font-size: 0.9em;
+            color: #5d4037;
+        }
+    </style>
+    <script>
+        function toggleSpecialMessage() {
+            const card = document.getElementById('main-card');
+            const specialMessage = document.getElementById('special-message');
+            
+            if (specialMessage.style.display === 'none' || specialMessage.style.display === '') {
+                card.style.display = 'none';
+                specialMessage.style.display = 'block';
+            } else {
+                specialMessage.style.display = 'none';
+                card.style.display = 'block';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('reveal-button').addEventListener('click', toggleSpecialMessage);
+            document.getElementById('back-button').addEventListener('click', toggleSpecialMessage);
+        });
+    </script>
+</head>
+<body>
+    <div id="main-card" class="card">
+        <span class="butterfly">🦋</span>
+        <span class="butterfly">🦋</span>
+        
+        <h1>Happy Mother's Day Godmother!</h1>
+        
+        <div class="image-container">
+            <img class="godmother-image" src="IMG_4715.jpeg" alt="For My Godmother">
+        </div>
+        
+        <p class="message">
+            <b>
+                For the woman who has been my second mother. <br> I love you! <br>
+            </b>
+        </p>
+        
+        <div class="stars">✧ ✦ ✧</div>
+        <div> 
+            <button id="reveal-button" class="button">Click to open card</button> 
+        </div>
+        
+    </div>
+    
+    <div id="special-message" class="card">
+        <div class="quote-container">
+            <span class="quote-mark">"</span>
+            <div class="message">
+                A godmother is a blessing from God,<br>
+                Thank you for your endless support and love<br>
+                Your place in my heart will never end.
+            </div>
+        </div>
+        
+        
+        <div class="signature">With all my love,</div>
+        <div class="signature">William</div>
+        
+        <button id="back-button" class="button">Click to close card</button>
+    </div>
+</body>
+</html>
